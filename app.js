@@ -17,7 +17,7 @@ function paintGreetings(username) {
   greeting.classList.remove(HIDEEN_CLASSNAME);
 }
 
-const savedUsername = localStorage.getItem("username");
+const savedUsername = localStorage.getItem(USERNAME_KEY);
 
 if (savedUsername === null) {
   loginForm.classList.remove(HIDEEN_CLASSNAME);
