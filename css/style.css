@@ -80,16 +80,21 @@ img {
   height: 350px;
   overflow: hidden;
   overflow-y: scroll;
+  cursor: default;
 }
 
 #todo-list li {
   margin-bottom: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  white-space: pre;
 }
 
 #todo-list button {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
   cursor: pointer;
   background-color: transparent;
   border: none;
