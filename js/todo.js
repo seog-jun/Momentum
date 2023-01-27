@@ -56,6 +56,7 @@ function handleToDoSubmit(event) {
   todos.push(newTodoObj);
   paintToDo(newTodoObj);
   saveToDos();
+  location.reload();
 }
 
 todoForm.addEventListener("submit", handleToDoSubmit);
