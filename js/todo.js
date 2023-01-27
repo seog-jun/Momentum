@@ -56,6 +56,7 @@ function handleToDoSubmit(event) {
   todos.push(newTodoObj);
   paintToDo(newTodoObj);
   saveToDos();
+  location.reload();
 }
 
 todoForm.addEventListener("submit", handleToDoSubmit);
@@ -71,7 +72,6 @@ if (savedToDos) {
 const todoCheck = todoList.querySelectorAll("input");
 
 function handleCheckBox(event) {
-  console.dir(event);
   const li = event.target.parentElement;
   const listText = li.querySelector("span:nth-child(2)");
 
@@ -79,12 +79,12 @@ function handleCheckBox(event) {
     if (todos[i].id === parseInt(li.id)) {
       if (todos[i].check === true) {
         todos[i].check = false;
-        saveToDos();
         listText.classList.remove("crossout");
+        saveToDos();
       } else {
         todos[i].check = true;
-        saveToDos();
         listText.classList.add("crossout");
+        saveToDos();
       }
     }
   }
