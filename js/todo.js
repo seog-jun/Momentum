@@ -66,9 +66,8 @@ const todoCheck = todoList.querySelectorAll("span");
 
 function handleCheckBox(event) {
   const li = event.target.parentElement;
-  console.log(li.id); //string
-  console.log(typeof li.id);
-  console.log(typeof todos[0].id);
+  console.log(typeof li.id); // string
+  console.log(typeof todos[0].id); //number
   for (let i = 0; todos.length; i++) {
     if (todos[i].id === parseInt(li.id)) {
       if (todos[i].check === true) {
