@@ -56,7 +56,7 @@ function handleToDoSubmit(event) {
   todos.push(newTodoObj);
   paintToDo(newTodoObj);
   saveToDos();
-  location.reload();
+  handleCheck();
 }
 
 todoForm.addEventListener("submit", handleToDoSubmit);
@@ -68,8 +68,6 @@ if (savedToDos) {
   todos = parsedToDos;
   parsedToDos.forEach(paintToDo);
 }
-
-const todoCheck = todoList.querySelectorAll("input");
 
 function handleCheckBox(event) {
   const li = event.target.parentElement;
@@ -90,6 +88,11 @@ function handleCheckBox(event) {
   }
 }
 
-for (let i = 0; i < todoCheck.length; i++) {
-  todoCheck[i].addEventListener("click", handleCheckBox);
+function handleCheck() {
+  const todoCheck = todoList.querySelectorAll("input");
+  for (let i = 0; i < todoCheck.length; i++) {
+    todoCheck[i].addEventListener("click", handleCheckBox);
+  }
 }
+
+handleCheck();
