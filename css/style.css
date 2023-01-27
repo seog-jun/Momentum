@@ -12,6 +12,9 @@ body {
   display: none;
 }
 
+.crossout {
+  text-decoration: line-through;
+}
 img {
   width: 100vw;
   height: 100vh;

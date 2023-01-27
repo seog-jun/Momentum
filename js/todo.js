@@ -23,12 +23,18 @@ function paintToDo(todoObj) {
   li.id = todoObj.id;
   const span = document.createElement("span");
   span.innerText = `  ${todoObj.text}`;
-  const check = document.createElement("span");
-  if (todoObj.check) {
-    check.innerText = "✔" + " ";
+
+  const check = document.createElement("input");
+  check.name = "check";
+  check.type = "checkbox";
+  if (todoObj.check === true) {
+    check.checked = true;
+    span.classList.add("crossout");
   } else {
-    check.innerText = "☐" + " ";
+    check.checked = false;
+    span.classList.remove("crossout");
   }
+
   const btn = document.createElement("button");
   btn.innerText = "❌";
   btn.addEventListener("click", deleteTodo);
@@ -62,31 +68,28 @@ if (savedToDos) {
   parsedToDos.forEach(paintToDo);
 }
 
-const todoCheck = todoList.querySelectorAll("span");
+const todoCheck = todoList.querySelectorAll("input");
 
 function handleCheckBox(event) {
+  console.dir(event);
   const li = event.target.parentElement;
-  console.log(typeof li.id); // string
-  console.log(typeof todos[0].id); //number
+  const listText = li.querySelector("span:nth-child(2)");
+
   for (let i = 0; todos.length; i++) {
     if (todos[i].id === parseInt(li.id)) {
       if (todos[i].check === true) {
-        console.log("uncheck");
         todos[i].check = false;
-        console.log(todos[i]);
         saveToDos();
-        location.reload();
+        listText.classList.remove("crossout");
       } else {
-        console.log("check");
         todos[i].check = true;
-        console.log(todos[i]);
         saveToDos();
-        location.reload();
+        listText.classList.add("crossout");
       }
     }
   }
 }
 
-for (let i = 0; i < todoCheck.length; i += 2) {
+for (let i = 0; i < todoCheck.length; i++) {
   todoCheck[i].addEventListener("click", handleCheckBox);
 }
