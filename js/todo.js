@@ -94,5 +94,4 @@ function handleCheck() {
     todoCheck[i].addEventListener("click", handleCheckBox);
   }
 }
-
 handleCheck();
